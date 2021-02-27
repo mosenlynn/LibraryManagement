@@ -30,7 +30,7 @@ class Book(models.Model):
 class Img(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField()
-    img = models.ImageField(upload_to='image/%Y/%m/%d/')
+    img = models.ImageField(upload_to='img')
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     class META:

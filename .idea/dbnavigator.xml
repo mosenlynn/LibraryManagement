@@ -24,7 +24,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="fdb71299-14ca-4e36-8008-b4f273ba62fd">
+        <schema name="lm" object-types="view, procedure, function, dataset trigger, constraint, table, index, column" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="1bdcfd43-6b11-47df-89de-e8239f96164e">
@@ -34,7 +38,7 @@
       <console name="Connection 1" type="STANDARD" schema="main" session="Main" />
     </connection>
     <connection id="fdb71299-14ca-4e36-8008-b4f273ba62fd">
-      <console name="lm" type="STANDARD" schema="" session="Main" />
+      <console name="lm" type="STANDARD" schema="" session="Main"><![CDATA[set global time UTC;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

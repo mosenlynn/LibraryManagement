@@ -145,10 +145,14 @@ def detail(request):
         book = Book.objects.get(pk=book_id)
     except Book.DoesNotExist:
         return HttpResponseRedirect(reverse('management:book_list'))
+    imgs = Img.objects.all()
+    for i in imgs:
+        print(i.img.url)
     content = {
         'user': user,
         'active_menu': 'view_book',
         'book': book,
+        'imgs': imgs,
     }
     return render(request, 'management/detail.html',content)
 
