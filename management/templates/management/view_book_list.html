@@ -1,6 +1,6 @@
 {% extends "management/base.html" %}
 {% load static %}
-{% block title %}查看图书{% endblock %}
+{% block title %}查看药品{% endblock %}
 
 {% block content %}
 
@@ -10,7 +10,7 @@
                 <div class="col-md-2">
                     <div class="list-group">
                         <a href="{% url 'management:book_list' %}" class="list-group-item" id="id_category_all">
-                            全部图书
+                            全部药品
                         </a>
                         {% for category in category_list %}
                             <a href="{% url 'management:book_list'%}?category={{ category }} " class="list-group-item"
@@ -47,10 +47,10 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>书名</th>
-                            <th>作者</th>
-                            <th>出版日期</th>
-                            <th>定价</th>
+                            <th>药品名</th>
+                            <th>操作人</th>
+                            <th>入库日期</th>
+                            <th>库存</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -64,7 +64,7 @@
                             </tr>
                         {% empty %}
                             <tr>
-                                <td>暂无图书</td>
+                                <td>暂无药品</td>
                             </tr>
                         {% endfor %}
                         </tbody>

@@ -172,7 +172,8 @@ def add_book(request):
             author=request.POST.get('author', ''),
             category=request.POST.get('category', ''),
             price=request.POST.get('price', 0),
-            publish_date=request.POST.get('publish_date', '')
+            publish_date=request.POST.get('publish_date', ''),
+            information=request.POST.get('information','')
         )
         new_book.save()
         state = 'success'

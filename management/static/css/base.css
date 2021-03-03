@@ -3,12 +3,12 @@ body {
     background-color: #eeeeee;
 }
 
-#header-base {
-    background-color: #000;
+header-base {
+    background-color: #eeeeee;
     color: #fff;
 }
 
-#base_name {
+base_name {
     color: #fff;
     font-weight: bold;
 }

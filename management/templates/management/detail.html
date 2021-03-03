@@ -38,10 +38,11 @@
                 <div class="col-md-6 col-md-offset-1">
                     <h2 class="text-center">{{ book.name }}</h2>
                     <br>
-                    <h3>作者：{{ book.author }}</h3>
+                    <h3>管理人：{{ book.author }}</h3>
                     <h3>类别：{{ book.category }}</h3>
-                    <h3>出版日期：{{ book.publish_date|date:"Y-m-d" }}</h3>
-                    <h3>价格：{{ book.price|floatformat:2 }}</h3>
+                    <h3>入库日期：{{ book.publish_date|date:"Y-m-d" }}</h3>
+                    <h3>库存：{{ book.price|floatformat:2 }}</h3>
+                    <h3>简介：{{ book.information }}</h3>
                 </div>
             </div>
         </div>

@@ -19,6 +19,7 @@ class Book(models.Model):
     author = models.CharField(max_length=128)
     publish_date = models.DateField()
     category = models.CharField(max_length=128)
+    information = models.CharField(max_length=200,default='NULL')
 
     class META:
         ordering = ['name']
