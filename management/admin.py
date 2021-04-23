@@ -21,5 +21,5 @@ admin_site = MyAdminSite(name='management')
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-admin.site.register(BOOK)
+admin.site.register(medicine)
 admin.site.register(Img)

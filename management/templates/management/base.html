@@ -37,7 +37,9 @@
                     <li id="add_book"><a href="{% url 'management:add_book' %}">添加药品或耗材</a></li>
                     <li id="add_img"><a href="{% url 'management:add_img' %}">添加图片</a></li>
                 {% endif %}
+                {% if user.myuser.permission > 0 %}
                 <li id="view_book"><a href="{% url 'management:book_list' %}">查看库存</a></li>
+                {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user %}

@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
-from management.models import MyUser, BOOK, Img
+from management.models import MyUser, medicine, Img
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
@@ -102,17 +102,17 @@ def set_password(request):
 
 def book_list(request):
     user = request.user if request.user.is_authenticated else None
-    category_list = BOOK.objects.values_list('category', flat=True).distinct()
+    category_list = medicine.objects.values_list('category', flat=True).distinct()
     query_category = request.GET.get('category', 'all')   # 没有值 就是默认值 all
     print(' query_category --> ', query_category)
-    if (not query_category) or BOOK.objects.filter(category=query_category).count() is 0:
+    if (not query_category) or medicine.objects.filter(category=query_category).count() is 0:
         query_category = 'all'
-        book_list = BOOK.objects.all()
+        book_list = medicine.objects.all()
     else:
-        book_list = BOOK.objects.filter(category=query_category)
+        book_list = medicine.objects.filter(category=query_category)
     if request.method == 'POST':
         keyword = request.POST.get('keyword', '')
-        book_list = BOOK.objects.filter(name__contains=keyword)
+        book_list = medicine.objects.filter(name__contains=keyword)
         query_category = 'all'
 
     paginator = Paginator(book_list, 5)  # 获取使用paginator函数分页集中sql_result，每5条为一页
@@ -140,10 +140,10 @@ def detail(request):
     book_id = request.GET.get('id', '')
     if book_id == '':
         return HttpResponseRedirect(reverse('management:book_list'))
-    book = BOOK.objects.get(pk=book_id)
+    book = medicine.objects.get(pk=book_id)
     try:
-        book = BOOK.objects.get(pk=book_id)
-    except BOOK.DoesNotExist:
+        book = medicine.objects.get(pk=book_id)
+    except medicine.DoesNotExist:
         return HttpResponseRedirect(reverse('management:book_list'))
     imgs = Img.objects.all()
     for i in imgs:
@@ -167,7 +167,7 @@ def add_book(request):
     user = request.user
     state = None
     if request.method == 'POST':
-        new_book = BOOK(
+        new_book = medicine(
             name=request.POST.get('name', ''),
             author=request.POST.get('author', ''),
             category=request.POST.get('category', ''),
@@ -194,10 +194,10 @@ def add_img(request):
                 name=request.POST.get('name', ''),
                 description=request.POST.get('description', ''),
                 img=request.FILES.get('img', ''),
-                book=BOOK.objects.get(pk=request.POST.get('book', ''))
+                book=medicine.objects.get(pk=request.POST.get('book', ''))
             )
             new_img.save()
-        except BOOK.DoesNotExist as e:
+        except medicine.DoesNotExist as e:
             state = 'error'
             print(e)
         else:
@@ -205,7 +205,7 @@ def add_img(request):
     content = {
         'user': user,
         'state': state,
-        'book_list': BOOK.objects.all(),
+        'book_list': medicine.objects.all(),
         'active_menu': 'add_img',
     }
     return render(request, 'management/add_img.html', content)
