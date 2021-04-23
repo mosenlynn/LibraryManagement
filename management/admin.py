@@ -12,8 +12,14 @@ class MyUserInline(admin.StackedInline):
 class UserAdmin(BaseUserAdmin):
     inlines = (MyUserInline,)
 
+class MyAdminSite(admin.AdminSite):
+    admin.site.site_header = '医疗信息管理系统'
+    admin.site.site_title = '王晓康医疗管理'
+
+admin_site = MyAdminSite(name='management')
+
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-admin.site.register(Book)
+admin.site.register(BOOK)
 admin.site.register(Img)

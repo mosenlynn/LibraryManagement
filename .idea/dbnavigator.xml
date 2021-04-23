@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="fdb71299-14ca-4e36-8008-b4f273ba62fd">
-        <schema name="lm" object-types="function, table, index, column, view, dataset trigger, procedure, constraint" />
+        <schema name="lm" object-types="constraint, procedure, view, function, column, dataset trigger, index, table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -42,9 +42,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="fdb71299-14ca-4e36-8008-b4f273ba62fd" object-ref="schemas/lm/tables/management_book" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="1bdcfd43-6b11-47df-89de-e8239f96164e" />
@@ -52,6 +50,9 @@
     <connection id="fdb71299-14ca-4e36-8008-b4f273ba62fd" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="fdb71299-14ca-4e36-8008-b4f273ba62fd" dataset="lm.auth_user_groups" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="fdb71299-14ca-4e36-8008-b4f273ba62fd" dataset="lm.auth_permission" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="fdb71299-14ca-4e36-8008-b4f273ba62fd" dataset="lm.management_myuser" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fdb71299-14ca-4e36-8008-b4f273ba62fd" dataset="lm.management_img" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fdb71299-14ca-4e36-8008-b4f273ba62fd" dataset="lm.auth_user" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fdb71299-14ca-4e36-8008-b4f273ba62fd" dataset="lm.management_book" active-filter-id="EMPTY_FILTER" />

@@ -13,7 +13,7 @@ class MyUser(models.Model):
         return self.user.username
 
 
-class Book(models.Model):
+class BOOK(models.Model):
     name = models.CharField(max_length=128)
     price = models.FloatField()
     author = models.CharField(max_length=128)
@@ -32,10 +32,12 @@ class Img(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField()
     img = models.ImageField(upload_to='img')
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey(BOOK, on_delete=models.CASCADE)
 
     class META:
         ordering = ['name']
 
     def __str__(self):
         return self.name
+
+
